@@ -1,25 +1,22 @@
-import {View, ImageBackground, StyleSheet, Text, TouchableOpacity, Button} from "react-native"
+import {View, ImageBackground, StyleSheet, Text, Button} from "react-native"
 
 export default function TaskCard({data}){
-    const {task} = data;
+    const {task, done} = data;
     const handleDelete=()=>{
 
     }
     return(
   
         <View style={styles.taskCardContainer}>
-            <Text style={styles.textColor}>• {task}</Text>
-            <TouchableOpacity>
-                <Button 
+            <Text style={done? styles.textColorDone : styles.textColor}>• {task}</Text>
+           
+                {/* <Button 
                 title="Delete More"
-                elevation= "3"
-                
-                backgroundColor='black'
                 color="#841584"
                 accessibilityLabel="Delete This"
                 style={styles.button}
-                />
-            </TouchableOpacity>
+                /> */}
+            
         </View>
     
     )
@@ -38,9 +35,16 @@ const styles = StyleSheet.create({
         lineHeight: 10
         
     },
-    textColor: {
+    textColorDone: {
         color: "#ffffff",
+        fontSize: 20,
+        textDecorationLine: "line-through"
+      
+    },
+    textColor: {
+        color: "black",
         fontSize: 20
+         
       
     },
 
